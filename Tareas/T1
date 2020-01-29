@@ -1,0 +1,48 @@
+package matriz;
+
+import java.util.Scanner;
+
+/**
+ * @author Alejandro
+ */
+public class Matriz {
+
+    public static void main(String[] args) {
+        
+        try {
+            System.out.println("Escriba el tamaño de la matriz cuadrada");
+            Scanner lectura = new Scanner(System.in);
+            String tamanio;
+            tamanio = lectura.nextLine();
+            int x = 0;
+            int y = 0;
+            int tamanioMatriz = Integer.parseInt(tamanio);
+            String matriz[][] = new String[tamanioMatriz][tamanioMatriz];
+            for (int i = 0; i < tamanioMatriz; i++) {
+                for (int j = 0; j < tamanioMatriz; j++) {
+                    if(i == 0){
+                        matriz[i][j] = " 1 ";
+                    } else if (j==0){
+                        matriz[i][j] = " 1 ";
+                    } else if(i+1 == tamanioMatriz){
+                        matriz[i][j] = " 1 ";
+                    } else if (j+1 == tamanioMatriz){
+                        matriz[i][j] = " 1 ";
+                    } else {
+                        matriz[i][j] = "   ";
+                    }
+                }
+            }  
+            String imprimir ="";
+            for (int i = 0; i < tamanioMatriz; i++) {
+                for (int j = 0; j < tamanioMatriz; j++) {
+                    imprimir = imprimir + matriz[i][j];
+                }
+                imprimir = imprimir + "\n";
+            }
+            System.out.println(imprimir);
+        } catch (Exception e) {
+            System.out.println("Ingrese un número válido");
+        }
+    }
+}
