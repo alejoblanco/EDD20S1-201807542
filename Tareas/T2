@@ -1,0 +1,53 @@
+
+package moneda;
+
+/**
+ * @author Alejandro
+ */
+public class Moneda {
+    public int numero =0;
+    public int nduenios =0;
+    private String nombre;
+    private String cantidad;
+    private String[] dueño;
+
+    public Moneda(String nombre, String cantidad, String[] duenio) {
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.dueño = duenio;
+    }
+   
+    public String getNombre() {return nombre;}
+    public void setNombre(String nombre) {this.nombre = nombre;}
+    public String getCantidad() {return cantidad;}
+    public void setCantidad(String cantidad) {this.cantidad = cantidad;}
+    public String[] getDueño() {return dueño;}
+    public void setDueño(String[] dueño) {this.dueño = dueño;}
+    
+    Moneda moneda[] = new Moneda[100];
+    
+    String duenios[] = new String[100];
+    
+    public void crearMoneda(String nombre, String cantidad, String[] duenio){
+        moneda[numero].setNombre(nombre);
+        moneda[numero].setCantidad(cantidad);
+        moneda[numero].setDueño(duenio);
+        numero++;
+    }
+    public void transferirCuentas(String cantidad, String[] duenio, String[] duenioDestino){
+        for (int i = 0; i < numero+1; i++) {
+            if (moneda[i].getDueño()==duenio) {
+                moneda[i].setCantidad(cantidad);
+                moneda[i].setDueño(duenioDestino);
+                return;
+            }
+        }
+    }
+    public void transferirDinero(String cantidad, String[] duenio){
+        moneda[numero].setCantidad(cantidad);
+        moneda[numero].setDueño(duenio);
+        numero++;
+    }
+    public static void main(String[] args) {
+    }
+}
